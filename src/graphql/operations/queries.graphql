@@ -1,0 +1,37 @@
+query samplePokeAPIquery(
+  $distinct_on: [pokemon_v2_pokemon_select_column!]
+  $limit: Int
+  $offset: Int
+  $order_by: [pokemon_v2_pokemon_order_by!]
+  $where: pokemon_v2_pokemon_bool_exp
+) {
+  pokemon_v2_pokemon(
+    distinct_on: $distinct_on
+    limit: $limit
+    offset: $offset
+    order_by: $order_by
+    where: $where
+  ) {
+    base_experience
+    height
+    id
+    is_default
+    name
+    order
+    pokemon_species_id
+    weight
+    pokemon_v2_pokemonstats {
+      pokemon_v2_stat {
+        is_battle_only
+        id
+        game_index
+        name
+        move_damage_class_id
+      }
+      base_stat
+      effort
+      id
+      pokemon_id
+    }
+  }
+}
